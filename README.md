@@ -21,6 +21,12 @@
 
 ### 更新记录
 ```log
+1.0.6
+
+更新内容：
+        1.修改部分默认参数
+        2.增加spring.mybatis.nodes.[dbname].properties mybatis配置参数
+
 1.0.5
 发布时间：2017年12月11日
 更新内容：
@@ -177,6 +183,7 @@ spring:
   mybatis:
     nodes:
       user:                                                       # 该数据点的名字
+        properties:                                               # mybatis配置参数
         order: after                                              # mybatis生成主键的顺序，如果要在insert into 数据前获得主键，配置为 BEFORE，否则配置为 AFTER 默认值为 BEFORE
         mapper: MYSQL                                             # mybatis通用mapper使用的mapper接口集合,mysqldb时使用使用 MYSQL,SqlServer 时使用MSSQL,其它db类型时使用DEFAULT， 默认值是 DEFAULT
         style: normal                                             # mybatis通用mapper中列字段默认转化方式
