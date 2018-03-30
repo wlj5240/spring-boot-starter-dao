@@ -22,7 +22,7 @@
 ### 更新记录
 ```log
 1.0.6
-
+发布时间：2018年1月24日
 更新内容：
         1.修改部分默认参数
         2.增加spring.mybatis.nodes.[dbname].properties mybatis配置参数
