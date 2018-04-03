@@ -34,8 +34,9 @@ public class DataSourceAspect {
 		Class<?> targetClass = point.getTarget().getClass();
 		Method targetMethod = targetClass.getMethod(method.getName(), method.getParameterTypes());
 		DataSourceChange annotation = AnnotationUtils.findAnnotation(targetMethod, DataSourceChange.class);
-		if (annotation == null)
+		if (annotation == null) {
 			return point.proceed();
+		}
 		SwitchExecute<Object> execute= new SwitchExecute<Object>() {
 			@Override
 			public Object run() throws Throwable {

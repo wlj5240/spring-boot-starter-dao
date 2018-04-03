@@ -23,7 +23,7 @@ import com.reger.datasource.properties.DruidStatProperties;
 @ConditionalOnProperty(name="spring.druid.stat.enable",havingValue="true")
 public class DruidWebStatAutoConfiguration {
 
-	Map<String, String> druidStatParameters(DruidStatProperties druidStatConfig) {
+	public Map<String, String> druidStatParameters(DruidStatProperties druidStatConfig) {
 		Map<String, String> druidStatParameters=new HashMap<String, String>();
 		druidStatParameters.put("allow", druidStatConfig.getAllow());
 		druidStatParameters.put("deny", druidStatConfig.getDeny());
@@ -35,7 +35,7 @@ public class DruidWebStatAutoConfiguration {
 	}
 
 	@Bean
-	ServletRegistrationBean servletRegistration(DruidStatProperties druidStatConfig) {
+	public ServletRegistrationBean servletRegistration(DruidStatProperties druidStatConfig) {
 		ServletRegistrationBean filterRegistration = new ServletRegistrationBean(new StatViewServlet());
 		filterRegistration.setAsyncSupported(true);
 		filterRegistration.setEnabled(true);
@@ -45,7 +45,7 @@ public class DruidWebStatAutoConfiguration {
 	}
 
 	@Bean
-	FilterRegistrationBean filterRegistration(DruidStatProperties druidStatConfig) {
+	public FilterRegistrationBean filterRegistration(DruidStatProperties druidStatConfig) {
 		FilterRegistrationBean filterRegistration = new FilterRegistrationBean(new WebStatFilter());
 		filterRegistration.setAsyncSupported(true);
 		filterRegistration.setEnabled(true);
